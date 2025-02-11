@@ -10,7 +10,7 @@ import StarRating from "./StarRating";
               <WatchedList watched={watched} />
             </>
           }
-        /> */
+        />;;;;;;;;;;;;;;;;;;;;;;;;;; */
 }
 
 const tempMovieData = [
