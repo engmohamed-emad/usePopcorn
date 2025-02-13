@@ -10,8 +10,10 @@ import StarRating from "./StarRating";
               <WatchedList watched={watched} />
             </>
           }
-<<<<<<<<< Temporary merge branch 1
-        />;;;;;;;;;;;;;;;;;;;;;;;;;; */
+
+        /> koko
+
+        ;;;;;;;;;;;;;;;;;;;;;;;;;; */
 }
 
 const tempMovieData = [
@@ -68,10 +70,7 @@ const KEY = "4ad0fe70";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState(function () {
-    const storedFilms = localStorage.getItem("watched");
-    return storedFilms ? JSON.parse(storedFilms) : [];
-  });
+  const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
@@ -91,13 +90,6 @@ export default function App() {
   function handleRemoveFromWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
-
-  useEffect(
-    function () {
-      localStorage.setItem("watched", JSON.stringify(watched));
-    },
-    [watched]
-  );
 
   useEffect(
     function () {
@@ -206,7 +198,6 @@ function Search({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
-      autoFocus
     />
   );
 }
@@ -361,21 +352,12 @@ function MovieDetails({ Id, onClose, onAdd, watched }) {
     Director,
     Genre,
   } = movie;
-
-  const [isTop, setIsTop] = useState(imdbRating > 8);
-  console.log(isTop);
-  useEffect(
-    function () {
-      setIsTop(imdbRating > 6.5);
-    },
-    [imdbRating]
-  );
-
   function addMovie(movie) {
     setAdded(true);
     onAdd({ ...movie, userRating: userRating });
     onClose();
   }
+
   useEffect(
     function () {
       async function getMovieDetails() {
