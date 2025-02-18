@@ -2,8 +2,11 @@
   "name": "usepopcorn",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://www.omdbapi.com/",
   "dependencies": {
+    "cors": "^2.8.5",
     "cra-template": "1.2.0",
+    "express": "^4.21.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1"
